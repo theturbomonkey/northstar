@@ -529,7 +529,8 @@ public class BackgroundProcess extends Thread
             // and recipient email address.
             for ( Message currentMessage : messages )
             {
-            	if ( currentMessage.getSubject().equals ( ( String ) appConfigMap.get ( AppConfig.CONFIG_PROPNAME_SUBJECT_PASSPHRASE ) ) )
+            	if ( currentMessage.getSubject().toLowerCase().equals ( 
+            			( ( String ) appConfigMap.get ( AppConfig.CONFIG_PROPNAME_SUBJECT_PASSPHRASE ) ).toLowerCase () ) )
             	{
             		LOGGER.debug ( "A message was found containing the proper subject passphrase." );
             		
@@ -551,7 +552,9 @@ public class BackgroundProcess extends Thread
             					currentEmailAddress.substring ( currentEmailAddress.indexOf ( "<" ) + 1, currentEmailAddress.indexOf ( ">" ));
             			}
             			
-            			if ( authorizedEmailList.contains ( currentEmailAddress ) )
+            			// We'll reply to this recipient if they are either in the list, or if anonymous users are allowed to
+            			// participate.
+            			if ( authorizedEmailList.contains ( currentEmailAddress ) || authorizedEmailList.contains ( "*@*" ) )
             			{
             				// Add this email address to the recipients list. This email address
             				// is authorized.
