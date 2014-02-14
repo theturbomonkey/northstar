@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+        <!-- Request resolution is attempted in the following manner: Custom controller 
+                is attempted to be found where the view is obtained, otherwise view is obtained 
+                via simple url mapping. -->
+
+        <!-- DispatcherServlet Context: defines this servlet's request-processing 
+                infrastructure -->
+
+        <!-- Scans bean definitions -->
+        <context:component-scan base-package="theturbomonkey.northstar.controller"/>
+
+        <!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+                up static resources in the ${webappRoot}/resources directory -->
+        <mvc:resources mapping="/resources/**" location="/resources/" />
+        <mvc:resources mapping="/app/**" location="/app/" />
+        
+        <!-- Enables the Spring MVC @Controller programming model -->
+        <context:annotation-config />
+        <mvc:annotation-driven />
+        
+        <!-- 
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="prefix">
+				<value>/WEB-INF/pages/</value>
+			</property>
+			<property name="suffix">
+				<value>.html</value>
+			</property>
+		</bean>
+		-->
+        
+        <!-- Caching configuration -->
+		<bean id="noCacheWebContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+			<property name="cacheSeconds" value="0"/>
+			<property name="useExpiresHeader" value="true"/>
+			<property name="useCacheControlHeader" value="true"/>
+			<property name="useCacheControlNoStore" value="true"/>
+		</bean>
+        
+        <!-- Make sure that non-of the service responses are cached. -->
+        <mvc:interceptors>
+            <mvc:interceptor>
+                <mvc:mapping path="/app/service/**" />
+                <bean parent="noCacheWebContentInterceptor" />
+            </mvc:interceptor>
+            <mvc:interceptor>
+                <mvc:mapping path="/console" />
+                <bean parent="noCacheWebContentInterceptor" />
+            </mvc:interceptor>
+        </mvc:interceptors>
+        
+        <!-- Make sure that a request to root goes to the console view. -->
+        <mvc:view-controller path="/" view-name="/console"/>
+</beans>

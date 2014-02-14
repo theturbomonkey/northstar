@@ -1,0 +1,97 @@
+/* Set the background colors for the alternating odd and even rows in the table. */
+table.dataTable tr.odd 
+{
+    background-color: #D6D6D6 !important;
+    color: #464646;
+}
+
+table.dataTable tr.even 
+{
+    background-color: #EEEEEE !important;
+    color: #464646;
+}
+
+table.dataTable tr.odd td.sorting_1 
+{
+    background-color: #D6D6D6 !important;
+    color: #0972A5;
+}
+
+table.dataTable tr.even td.sorting_1 
+{
+    background-color: #EEEEEE !important;
+    color: #0972A5;
+}
+
+/* Needed to ensure that the next and previous links appear in white text when enabled. */
+.paginate_enabled_previous, .paginate_enabled_next 
+{
+    color: #FFFFFF !important;
+}
+
+/* A background is provided by the dark-hive style for the content panel. Tell CSS to ignore this background. */
+.ui-widget-content
+{
+	background: none;
+}
+
+.ui-dialog
+{
+	background-color: #000000;
+	/*background-image: url('../../resources/image/stars.png');*/
+	background-repeat: repeat;
+	-webkit-box-shadow:0 0 18px #ffffff; 
+    -moz-box-shadow: 0 0 18px #ffffff; 
+    box-shadow:0 0 18px #ffffff;
+}
+
+/* Set-up the row/cell colors that appear when the cursor hovers over a row/cell in the routes table. */
+#tblAuthorization tbody tr.even:hover, #tblRoutes tbody tr.even td.highlighted 
+{
+	background-color: #CEE3ED  !important;
+}
+
+#tblAuthorization tbody tr.odd:hover, #tblRoutes tbody tr.odd td.highlighted 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.even:hover 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.even:hover td.sorting_1 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.even:hover td.sorting_2 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.even:hover td.sorting_3 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.odd:hover 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.odd:hover td.sorting_1 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.odd:hover td.sorting_2 
+{
+	background-color: #CEE3ED !important;
+}
+
+#tblAuthorization tr.odd:hover td.sorting_3 
+{
+	background-color: #CEE3ED !important;
+}

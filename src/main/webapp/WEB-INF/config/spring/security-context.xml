@@ -1,0 +1,122 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:sec="http://www.springframework.org/schema/security" 
+	   xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<sec:global-method-security pre-post-annotations="enabled" />
+	
+	<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
+		<sec:filter-chain-map path-type="ant">
+			<sec:filter-chain pattern="/**"
+				filters="securityContextPersistenceFilter,
+                         logoutFilter,
+                         usernamePasswordAuthenticationFilter" />
+		</sec:filter-chain-map>
+	</bean>
+
+	<bean id="securityContextPersistenceFilter" class="org.springframework.security.web.context.SecurityContextPersistenceFilter">
+	</bean>
+
+	<bean id="usernamePasswordAuthenticationFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+		<property name="authenticationManager" ref="authManager" />
+		<property name="filterProcessesUrl" value="/j_spring_security_check" />
+	</bean>
+
+	<bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<!-- the post-logout destination -->
+		<constructor-arg value="/login" />
+		<constructor-arg>
+			<array>
+				<ref local="logoutHandler" />
+			</array>
+		</constructor-arg>
+		<property name="filterProcessesUrl" value="/j_spring_security_logout" />
+	</bean>
+
+	<bean id="logoutHandler" class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+
+	<sec:http use-expressions="true">
+		<!-- <sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https" /> -->
+		
+		<sec:intercept-url pattern="/resources/**" access="permitAll" />
+		<sec:intercept-url pattern="/authenticate" access="permitAll" />
+		<sec:intercept-url pattern="/login" access="permitAll" />
+		<sec:intercept-url pattern="/logout" access="permitAll" />
+		<sec:intercept-url pattern="/accessdenied" access="permitAll" />
+		<sec:intercept-url pattern="/j_spring_security_check" access="permitAll" />
+		<sec:intercept-url pattern="/j_spring_security_logout" access="permitAll" />
+		<sec:intercept-url pattern="/**" access="hasRole('ROLE_ADMINISTRATOR')" />
+
+		<sec:form-login login-page="/login"
+			            default-target-url='/console' 
+			            always-use-default-target='false'
+			            authentication-failure-url="/login" />
+
+		<sec:logout invalidate-session="true" logout-success-url="/logout" />
+
+		<sec:access-denied-handler error-page="/accessdenied" />
+	</sec:http>
+
+	<!-- START - Integration with embedded LDAP server -->
+	<!-- <sec:authentication-manager alias="ldapAuthenticationManager"> <sec:ldap-authentication-provider 
+		user-search-filter="(uid={0})" user-search-base="ou=users" group-search-filter="(uniqueMember={0})" 
+		group-search-base="ou=groups" group-role-attribute="cn" role-prefix="ROLE_"> 
+		</sec:ldap-authentication-provider> </sec:authentication-manager> <sec:ldap-server 
+		ldif="classpath:ldap/users.ldif" root="dc=,dc="/> -->
+	<!-- END - Integration with embedded LDAP server -->
+
+	<!-- START - Integration with Directory server -->
+    <!-- 
+	<bean id="ldapServer" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<constructor-arg value="ldap://host:389/OU=,DC=,DC=" />
+		<property name="userDn" value="user" />
+		<property name="password" value="somepassword" />
+	</bean>
+
+	<bean id="ldapAuthProvider"
+		class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+		<constructor-arg ref="ldapBindAuthenticator" />
+		<constructor-arg ref="ldapAuthoritiesPopulator" />
+		<property name="userDetailsContextMapper" ref="ldapUserDetailsContextMapper" />
+	</bean>
+
+	<bean id="ldapBindAuthenticator"
+		class="org.springframework.security.ldap.authentication.BindAuthenticator">
+		<constructor-arg ref="ldapServer" />
+		<property name="userSearch" ref="ldapSearchBean" />
+	</bean>
+
+	<bean id="ldapSearchBean"
+		class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+		<constructor-arg value="OU=All Users" />
+		<constructor-arg value="(userPrincipalName={0})" />
+		<constructor-arg ref="ldapServer" />
+	</bean>
+
+	<bean id="ldapAuthoritiesPopulator"
+		class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+		<constructor-arg ref="ldapServer" />
+		<constructor-arg value="OU=All Groups" />
+		<property name="groupSearchFilter" value="(member={0})" />
+	</bean>
+
+	<bean id="ldapUserDetailsContextMapper"
+		class="org.springframework.security.ldap.userdetails.InetOrgPersonContextMapper" />
+
+	<sec:authentication-manager alias="ldapAuthenticationManager">
+		<sec:authentication-provider ref="ldapAuthProvider" />
+	</sec:authentication-manager>
+    -->
+	<!-- END - Integration with Directory server -->
+
+	<sec:authentication-manager alias="authManager">
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user name="admin" password="${auth.default.admin.password}" authorities="ROLE_ADMINISTRATOR"/>
+			</sec:user-service>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+</beans>

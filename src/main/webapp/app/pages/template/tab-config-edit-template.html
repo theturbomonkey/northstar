@@ -1,0 +1,35 @@
+<script type="text/template" id="tmplConfigItemText">
+  <div class="pnlConfigItem">
+    <div id="lblConfig_((appConfigID))" class="lblConfigName">((appConfigName))</div><div class="lblConfigValue"><input type="text" size="50" id="lblConfigVal_((appConfigID))" value="((appConfigVal))"/></div>
+  </div>
+</script>
+
+<script type="text/template" id="tmplConfigItemInt">
+  <div class="pnlConfigItem">
+    <div id="lblConfig_((appConfigID))" class="lblConfigName">((appConfigName))</div><div class="lblConfigValue"><input type="text" size="10" id="lblConfigVal_((appConfigID))" value="((appConfigVal))"/></div>
+  </div>
+</script>
+
+<script type="text/template" id="tmplConfigItemTextConfidential">
+  <div class="pnlConfigItem">
+    <div id="lblConfig_((appConfigID))" class="lblConfigName">((appConfigName))</div><div class="lblConfigValue"><input type="password" size="50" id="lblConfigVal_((appConfigID))" value="((appConfigVal))"/></div>
+  </div>
+</script>
+
+<script type="text/template" id="tmplConfigItemBool">
+  <div class="pnlConfigItem">
+    <div id="lblConfig_((appConfigID))" class="lblConfigName">((appConfigName))</div><div class="lblConfigValue"><input type="checkbox" id="lblConfigVal_((appConfigID))" ((appConfigValChecked))/></div>
+  </div>
+</script>
+
+<script type="text/template" id="tmplConfigItemDate">
+  <div class="pnlConfigItem">
+    <div id="lblConfig_((appConfigID))" class="lblConfigName">((appConfigName))</div><div class="lblConfigValue"><input type="text" size="50" id="lblConfigVal_((appConfigID))" value="((appConfigVal))"/></div>
+  </div>
+</script>
+
+<div id="pnlConfigContent">
+</div>
+<div class="pnlButtons">
+  <button type="button" id="btnConfigCancel" class="pulsing3DButton" value="tabConfigReturn">Cancel</button>&nbsp;&nbsp;<button type="button" id="btnConfigSave" class="pulsing3DButton" value="tabConfigReturn">Save</button>
+</div>

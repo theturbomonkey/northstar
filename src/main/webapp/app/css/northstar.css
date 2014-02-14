@@ -1,0 +1,364 @@
+.invisible
+{
+	display: none;
+}
+
+.visible
+{
+	display: block;
+}
+
+.pgBody
+{
+	color: #FFFFFF;
+	background-color: #000000;
+	background-image: url('../../resources/image/stars.png');
+	background-repeat: repeat;
+}
+
+#pnlConfigContent
+{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.pnlButtons
+{
+	width: 100%;
+	text-align: center;
+}
+
+.pnlHeader
+{
+	height: 130px;
+	width: 100%;
+}
+
+.pnlHeaderTable
+{
+	height: 100%;
+	width: 100%;
+}
+
+.pnlHeaderLogo
+{
+	margin-left: 100px;
+	vertical-align: middle;
+	width: 300px;
+}
+
+.pnlHeaderLogo img
+{
+	margin-left: 50px;
+}
+
+.pnlHeaderTitles
+{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.pnlHeaderTitle label
+{
+	color: #0972A5;
+	font-weight: bold;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	font-size: 35px;
+	position: relative;
+    text-shadow: 0px 0px 2px #FFFFFF;
+}
+
+.pnlHeaderSubTitle
+{
+	color: #0972A5;
+	font-weight: bold;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	font-size: 18px;
+	position: relative;
+}
+
+.pnlHeaderActions
+{
+	padding-bottom: 12px;
+	text-align: right;
+	vertical-align: bottom;
+	width: 300px;
+}
+
+.pnlHeaderActions a
+{
+	color: #0972A5;
+    font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+	padding-left: 10px;
+	text-decoration: none;
+}
+
+.pnlHeaderActions a:visited
+{
+	color: #0972A5;
+	text-decoration: none;
+}
+
+.pnlHeaderActions a:active
+{
+	color: #A00000;
+	text-shadow: 0px 0px 5px #FFFFFF;
+}
+
+.pnlHeaderActions a:hover, .pnlHeaderActions a:focus
+{
+	color: #FFFFFF;
+	text-shadow: 0px 0px 5px #FFFFFF;
+}
+
+.pnlBody
+{
+	height: 600px;
+	border: 1px solid #0972A5 !important;
+	-webkit-box-shadow:0 0 18px #ffffff; 
+    -moz-box-shadow: 0 0 18px #ffffff; 
+    box-shadow:0 0 18px #ffffff;
+}
+
+.pnlFooter
+{
+	border: 1px solid #0972A5;
+	border-radius: 3px;
+	color: #0972A5;
+	font-family: "Lucida Grande", Arial, sans-serif;
+	font-size: 12px;
+	height: 20px;
+	margin-top: 2px;
+	padding-top: 5px;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.pnlFinale
+{
+	margin-top: 5px;
+	text-align: center;
+}
+
+.txtStatusActive
+{
+	color: #009933;
+}
+
+.txtStatusInactive
+{
+	color: #E62E00;
+}
+
+.pulsing3DButton
+{
+	background-color: #555;
+	background: -webkit-linear-gradient(#888, #555);
+	background: linear-gradient(#888, #555);
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+	color: #CCC;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 2px 15px;
+	text-shadow: 0 -1px 0 #000;
+	text-transform: uppercase;
+	-webkit-transition: all 150ms ease;
+	transition: all 150ms ease;
+	-webkit-animation: pulsate-white 1.7s linear infinite;
+	animation: pulsate-white 1.7s linear infinite;
+}
+
+.pulsing3DButton:hover, .pulsing3DButton:focus
+{
+	-webkit-animation: pulsate-blue 1.7s linear infinite;
+	animation: pulsate-blue 1.7s linear infinite;
+}
+	
+@-webkit-keyframes pulsate-blue
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+	50%  { color: #0972A5; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+		
+@keyframes pulsate-blue
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+	50%  { color: #0972A5; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+
+@-webkit-keyframes pulsate-white
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+		
+@keyframes pulsate-white
+{
+	0%   { color: #ddd; text-shadow: 0 -1px 0 #000; }
+	50%  { color: #fff; text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff; }
+	100% { color: #ddd; text-shadow: 0 -1px 0 #000; }
+}
+
+.pulsing3DButton:active
+{
+	color: #A00000;
+	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
+	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
+	-webkit-transform: translateY(3px);
+	transform: translateY(3px);
+	-webkit-animation: none;
+	animation: none;
+}
+
+.btnAuthAction
+{
+	cursor: pointer;
+}
+
+.pnlAboutItem
+{
+	border-bottom: 1px solid #0972A5;
+	width: 100%;
+}
+
+.lblAbout
+{
+	color: #0972A5;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 200px;
+    display: inline-block;
+}
+
+.lblAboutValue
+{
+	color: #FFFFFF;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.pnlConfigItem
+{
+	border-bottom: 1px solid #0972A5;
+	width: 100%;
+}
+
+.lblAuthName
+{
+	color: #0972A5;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 130px;
+    display: inline-block;
+}
+
+.lblAuthValue
+{
+	color: #FFFFFF;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.lblConfigName
+{
+	color: #0972A5;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 240px;
+    display: inline-block;
+}
+
+.lblConfigValue
+{
+	color: #FFFFFF;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.tblHeaderCenter
+{
+	text-align: center;
+}
+
+.tblHeaderLeft
+{
+	text-align: left;
+}
+
+#pnlAuthorizationTableRefresh
+{
+	padding-top: 30px;
+	text-align: center;
+	width: 100%;
+}
+
+.pnlDialog
+{
+	background: #000000;
+	display: none;
+}
+
+.pnlDialogButtons
+{
+	padding-top: 30px;
+	text-align: center;
+	width: 100%;
+}
+
+.lblAlert
+{
+	color: #A00000;
+	font-family:calibri;
+    font-size: 15px;
+    font-weight: bold;
+    height: 15px;
+}
+
+.dialogMessageText
+{
+	color: #A00000;
+	font-family:"Lucida Grande", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#pnlLogContent
+{
+	height: 100%;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	width: 100%;
+}
+
+#taLog
+{
+	font-family:"Courier New", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+	height: 450px;
+	width: 100%;
+}

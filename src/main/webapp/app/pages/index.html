@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="UTF-8">
+    <title>Northstar - Console</title>
+    
+    <link rel="stylesheet" type="text/css" href="app/css/northstar.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/jqueryui/dark-hive/jquery-ui-1.10.3.custom.css"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/datatables/jquery.dataTables_themeroller.css"/>
+    <link rel="stylesheet" type="text/css" href="app/css/northstar-dark-hive-overrides.css"/>
+    
+    <script type="text/javascript" data-main="app/js/require-config" src="resources/js/lib/require.min.js"></script>
+  </head>
+  <body class="pgBody">
+    <div class="pnlHeader">
+      <table class="pnlHeaderTable">
+      	<tr>
+      	  <td class="pnlHeaderLogo">
+      		<img src="resources/image/northstar.jpg" alt="Northstar Logo" title="Polaris"/>
+      	  </td>
+      	  <td class="pnlHeaderTitles">
+      	    <div class="pnlHeaderTitle"><label>NORTHSTAR</label></div>
+    		<div class="pnlHeaderSubTitle">Host Finder</div>
+      	  </td>
+      	  <td class="pnlHeaderActions">
+      	    <a href="#">Help</a>
+    		<a id="aLogout" href="/j_spring_security_logout">Logout</a>
+      	  </td>
+      	</tr>
+      </table>
+    </div>
+    
+	<div class="pnlBody" id="tabs">
+		Loading...
+	</div>
+
+	<div class="pnlFooter">
+		GNU License &copy; <span id="spanYear">Year</span>
+	</div>
+	
+	<div class="pnlFinale"><img src="resources/image/high-strangeness.png" title="believe"/></div>
+  </body>
+</html>

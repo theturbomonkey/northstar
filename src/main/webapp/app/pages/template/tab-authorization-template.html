@@ -1,0 +1,24 @@
+<script type="text/template" id="authDeleteTemplate">
+    <div id="authDeleteDialog" title="Delete Authorization">
+		<div id="dialogMessage" class="dialogMessageText">
+            Are you sure that you want to delete the authorization for ((authEmail))?
+		</div>
+	</div>
+</script>
+
+<script type="text/template" id="authErrorTemplate">
+    <div id="authErrorDialog" title="Communication Error">
+		<div id="dialogMessage" class="dialogMessageText">
+            The server is momentarily unreachable: ((errorCode)) [((errorText))].
+		</div>
+	</div>
+</script>
+
+<div>
+  <table id='tblAuthorization' class='display dataTable'></table>
+</div>
+<div id="pnlAuthorizationTableRefresh">
+  <input type="button" id="btnAuthorizationTableRefresh" class="pulsing3DButton" value="Refresh"/>&nbsp;&nbsp;<input type="button" id="btnAuthorizationTableAdd" class="pulsing3DButton" value="Add"/>
+</div>
+<div id="authDialog" class="pnlDialog">
+</div>
