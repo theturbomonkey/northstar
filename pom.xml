@@ -5,7 +5,7 @@
   <artifactId>northstar</artifactId>
   <packaging>war</packaging>
   <version>1.0.0</version>
-  <name>Wormhole</name>
+  <name>Northstar</name>
   <url>https://github.com/theturbomonkey/northstar.git</url>
   
   <scm>
